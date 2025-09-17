@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "tNXs7mkrWz4IKy2jTkECjZOUf4URtCBVZP94CONbShA=",
+  "Source": "MontenegroFiscalization.Api",
+  "BasePath": "_content/MontenegroFiscalization.Api",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}

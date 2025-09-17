@@ -1,0 +1,136 @@
+﻿version: '3.8'
+
+services:
+  # API Service
+  api:
+    build:
+      context: .
+      dockerfile: MontenegroFiscalization.Api/Dockerfile
+    container_name: montenegro-fiscalization-api
+    ports:
+      - "5000:80"
+      - "5001:443"
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_URLS=https://+:443;http://+:80
+      - ASPNETCORE_HTTPS_PORT=5001
+      - ConnectionStrings__DefaultConnection=Server=db;Database=MontenegroFiscalization;User=sa;Password=YourStrong@Passw0rd;TrustServerCertificate=true
+      - JWT__Secret=your-super-secret-key-for-jwt-minimum-256-bits-long
+      - JWT__Issuer=montenegro-fiscalization-api
+      - JWT__Audience=montenegro-fiscalization-clients
+      - Vault__Url=http://vault:8200
+      - Vault__Token=${VAULT_TOKEN:-root-token}
+      - TaxAdministration__ServiceUrl=https://efi-test.tax.gov.me/fs-v1
+    depends_on:
+      - db
+      - vault
+      - redis
+    volumes:
+      - ./Certificates:/app/Certificates:ro
+      - ./logs:/app/logs
+    networks:
+      - fiscalization-network
+
+  # SQL Server Database
+  db:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    container_name: montenegro-fiscalization-db
+    environment:
+      - ACCEPT_EULA=Y
+      - SA_PASSWORD=YourStrong@Passw0rd
+      - MSSQL_PID=Developer
+    ports:
+      - "1433:1433"
+    volumes:
+      - db-data:/var/opt/mssql
+      - ./init-db:/docker-entrypoint-initdb.d
+    networks:
+      - fiscalization-network
+
+  # HashiCorp Vault for Certificate Management
+  vault:
+    image: vault:latest
+    container_name: montenegro-fiscalization-vault
+    cap_add:
+      - IPC_LOCK
+    environment:
+      - VAULT_DEV_ROOT_TOKEN_ID=root-token
+      - VAULT_DEV_LISTEN_ADDRESS=0.0.0.0:8200
+    ports:
+      - "8200:8200"
+    volumes:
+      - vault-data:/vault/file
+      - ./vault-config:/vault/config
+    command: server -dev
+    networks:
+      - fiscalization-network
+
+  # Redis Cache
+  redis:
+    image: redis:7-alpine
+    container_name: montenegro-fiscalization-cache
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis-data:/data
+    command: redis-server --appendonly yes
+    networks:
+      - fiscalization-network
+
+  # Nginx Reverse Proxy
+  nginx:
+    image: nginx:alpine
+    container_name: montenegro-fiscalization-proxy
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf:ro
+      - ./nginx/ssl:/etc/nginx/ssl:ro
+    depends_on:
+      - api
+    networks:
+      - fiscalization-network
+
+  # Monitoring - Prometheus (Optional)
+  prometheus:
+    image: prom/prometheus:latest
+    container_name: montenegro-fiscalization-prometheus
+    ports:
+      - "9090:9090"
+    volumes:
+      - ./prometheus/prometheus.yml:/etc/prometheus/prometheus.yml:ro
+      - prometheus-data:/prometheus
+    command:
+      - '--config.file=/etc/prometheus/prometheus.yml'
+      - '--storage.tsdb.path=/prometheus'
+    networks:
+      - fiscalization-network
+
+  # Monitoring - Grafana (Optional)
+  grafana:
+    image: grafana/grafana:latest
+    container_name: montenegro-fiscalization-grafana
+    ports:
+      - "3000:3000"
+    environment:
+      - GF_SECURITY_ADMIN_PASSWORD=admin
+      - GF_INSTALL_PLUGINS=redis-datasource
+    volumes:
+      - grafana-data:/var/lib/grafana
+      - ./grafana/dashboards:/etc/grafana/provisioning/dashboards:ro
+    depends_on:
+      - prometheus
+    networks:
+      - fiscalization-network
+
+volumes:
+  db-data:
+  vault-data:
+  redis-data:
+  prometheus-data:
+  grafana-data:
+
+networks:
+  fiscalization-network:
+    driver: bridge

@@ -1,0 +1,6 @@
+@MontenegroFiscalization.Api_HostAddress = http://localhost:5189
+
+GET {{MontenegroFiscalization.Api_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

@@ -1,0 +1,17 @@
+/Users/a1111/RiderProjects/MontenegroFiscalization/MontenegroFiscalization.Infrastructure/obj/Debug/net8.0/MontenegroFiscalization.Infrastructure.csproj.AssemblyReference.cache
+/Users/a1111/RiderProjects/MontenegroFiscalization/MontenegroFiscalization.Infrastructure/obj/Debug/net8.0/MontenegroFiscalization.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+/Users/a1111/RiderProjects/MontenegroFiscalization/MontenegroFiscalization.Infrastructure/obj/Debug/net8.0/MontenegroFiscalization.Infrastructure.AssemblyInfoInputs.cache
+/Users/a1111/RiderProjects/MontenegroFiscalization/MontenegroFiscalization.Infrastructure/obj/Debug/net8.0/MontenegroFiscalization.Infrastructure.AssemblyInfo.cs
+/Users/a1111/RiderProjects/MontenegroFiscalization/MontenegroFiscalization.Infrastructure/obj/Debug/net8.0/MontenegroFiscalization.Infrastructure.csproj.CoreCompileInputs.cache
+/Users/a1111/RiderProjects/MontenegroFiscalization/MontenegroFiscalization.Infrastructure/bin/Debug/net8.0/MontenegroFiscalization.Infrastructure.deps.json
+/Users/a1111/RiderProjects/MontenegroFiscalization/MontenegroFiscalization.Infrastructure/bin/Debug/net8.0/MontenegroFiscalization.Infrastructure.runtimeconfig.json
+/Users/a1111/RiderProjects/MontenegroFiscalization/MontenegroFiscalization.Infrastructure/bin/Debug/net8.0/MontenegroFiscalization.Infrastructure.dll
+/Users/a1111/RiderProjects/MontenegroFiscalization/MontenegroFiscalization.Infrastructure/bin/Debug/net8.0/MontenegroFiscalization.Infrastructure.pdb
+/Users/a1111/RiderProjects/MontenegroFiscalization/MontenegroFiscalization.Infrastructure/bin/Debug/net8.0/MontenegroFiscalization.Core.dll
+/Users/a1111/RiderProjects/MontenegroFiscalization/MontenegroFiscalization.Infrastructure/bin/Debug/net8.0/MontenegroFiscalization.Core.pdb
+/Users/a1111/RiderProjects/MontenegroFiscalization/MontenegroFiscalization.Infrastructure/obj/Debug/net8.0/Monteneg.ACCE5D91.Up2Date
+/Users/a1111/RiderProjects/MontenegroFiscalization/MontenegroFiscalization.Infrastructure/obj/Debug/net8.0/MontenegroFiscalization.Infrastructure.dll
+/Users/a1111/RiderProjects/MontenegroFiscalization/MontenegroFiscalization.Infrastructure/obj/Debug/net8.0/refint/MontenegroFiscalization.Infrastructure.dll
+/Users/a1111/RiderProjects/MontenegroFiscalization/MontenegroFiscalization.Infrastructure/obj/Debug/net8.0/MontenegroFiscalization.Infrastructure.pdb
+/Users/a1111/RiderProjects/MontenegroFiscalization/MontenegroFiscalization.Infrastructure/obj/Debug/net8.0/MontenegroFiscalization.Infrastructure.genruntimeconfig.cache
+/Users/a1111/RiderProjects/MontenegroFiscalization/MontenegroFiscalization.Infrastructure/obj/Debug/net8.0/ref/MontenegroFiscalization.Infrastructure.dll

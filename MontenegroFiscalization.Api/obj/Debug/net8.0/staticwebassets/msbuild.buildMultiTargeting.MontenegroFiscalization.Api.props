@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="../build/MontenegroFiscalization.Api.props" />
+</Project>
