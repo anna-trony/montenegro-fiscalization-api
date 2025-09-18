@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("MontenegroFiscalization.Core")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+3921cf4ef794a70326334e6128157df33cadec00")]
 [assembly: System.Reflection.AssemblyProductAttribute("MontenegroFiscalization.Core")]
 [assembly: System.Reflection.AssemblyTitleAttribute("MontenegroFiscalization.Core")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
